@@ -49,7 +49,7 @@ const EventCard: React.FC<{
     <div className="flex gap-5 justify-between self-start mt-8 text-lg font-medium leading-7 text-sky-950 max-md:flex-wrap max-md:text-base">
       <div className="flex items-center gap-1 justify-between px-0.5">
         <UserRound className="w-4" />
-        <span>{guestSpeakers.map((i) => i.username).join(", ")}</span>
+        <span>{guestSpeakers.map((i: any) => i.username).join(", ")}</span>
       </div>
       <div className="flex items-center gap-1 whitespace-nowrap">
         <MapPin className="w-4" />
