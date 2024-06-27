@@ -1,113 +1,71 @@
+import * as React from "react";
 import Image from "next/image";
+import HeroImg from "@/public/imgs/hero.png";
 
-export default function Home() {
+type MissionStatementProps = {
+  content: Array<React.ReactNode>;
+};
+
+const MissionStatement: React.FC<MissionStatementProps> = ({ content }) => (
+  <div className="flex flex-col grow self-stretch pb-4 text-lg leading-8 text-sky-950 max-md:text-base max-md:max-w-full">
+    {content.map((paragraph, index) => (
+      <p
+        key={index}
+        className={
+          index === 0
+            ? "text-base leading-7 max-md:max-w-full"
+            : "mt-4 max-md:max-w-full"
+        }
+      >
+        {paragraph}
+      </p>
+    ))}
+  </div>
+);
+
+export default async function AGIIWebsite() {
+  const missionContent = [
+    <>
+      <span className="text-2xl font-bold leading-10 text-sky-950">AGII </span>
+      <span className="text-lg text-sky-950">
+        is to bridge the gap between AI innovation and societal impact by
+        creating a vibrant community dedicated to educating, inspiring, and
+        empowering individuals to harness the transformative potential of AI for
+        human betterment.
+      </span>
+    </>,
+    "We aim to engage the younger generation and foster an environment of learning and exchange, enabling them to adapt to and participate in the development of AI technologies.",
+    "AGII is committed to building a diverse and inclusive space that promotes lifelong learning, entrepreneurship, and philanthropy, empowering members to navigate the complexities of AI development effectively.",
+  ];
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+    <div className="flex flex-col bg-white relative">
+      <Image
+        src={HeroImg}
+        alt="AGII Banner"
+        width={1200}
+        height={456}
+        className="w-full aspect-[2.63] max-md:max-w-full"
+      />
+      <main className="flex justify-center items-center px-16 py-20 w-full bg-white max-1200:px-5 max-md:py-5 max-md:max-w-full">
+        <section className="w-full max-w-[1200px] max-md:max-w-full">
+          <div className="flex gap-5 max-md:flex-col max-md:gap-0">
+            <div className="flex flex-col max-md:ml-0 max-md:w-full">
+              <div className="grow self-stretch px-5 pb-20 text-4xl font-bold border-r border-solid border-sky-950 leading-[60px] text-sky-950 max-md:mt-5 max-md:pb-5 max-md:leading-8">
+                <span className="text-6xl font-black text-sky-950 max-md:text-4xl">
+                  MISSION
+                </span>
+                <br />
+                <span className="font-medium max-md:text-3xl">STATEMENT</span>
+              </div>
+            </div>
+            <div className="flex flex-col ml-5 max-md:ml-0 max-md:w-full">
+              <MissionStatement content={missionContent} />
+            </div>
+          </div>
+        </section>
+      </main>
+      
+    </div>
   );
 }
