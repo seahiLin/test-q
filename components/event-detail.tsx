@@ -153,8 +153,8 @@ export default function EventDetail({
           <div className="flex gap-5 max-md:flex-col max-md:gap-0">
             <div className="flex flex-col w-[55%] max-md:ml-0 max-md:w-full">
               <div className="flex flex-col grow justify-center self-stretch pl-8 text-2xl font-bold leading-10 text-sky-950 max-md:mt-10 max-md:max-w-full max-md:pl-4 max-md:text-xl">
-                {event.guestSpeakers.map((speaker, index) => (
-                  <Speaker key={index} speaker={speaker} />
+                {event.guestSpeakers.map((speaker: any) => (
+                  <Speaker key={speaker.username} speaker={speaker} />
                 ))}
                 <EventInfo
                   // @ts-ignore
